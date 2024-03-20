@@ -1,7 +1,7 @@
-
+import GameBoard from "../components/GameBoard"
 function PlayGame() {
   return (
-    <div>PlayGame</div>
+    <GameBoard src="src/assets/beach.webp" />
   )
 }
 

@@ -6,7 +6,7 @@ type ContainerProps = {
 
 function Container({ children } : ContainerProps) {
   return (
-    <main className=" h-screen bg-neutral-800 p-8">
+    <main className=" h-fill bg-neutral-800 p-8">
         { children }
     </main>
   )

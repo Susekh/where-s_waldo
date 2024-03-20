@@ -31,7 +31,7 @@ function Header(){
                     key={list.key} 
                     onClick={() =>navigate(list.slug)}  
                     className="
-                     text-white  text-xl hover:cursor-pointer
+                     text-white  text-xl hover:cursor-pointer hover:bg-gradient-to-r from-red-500 via-white to-pink-500 hover:text-transparent bg-clip-text
                      "
                      >{list.name}</li>
                 ))
