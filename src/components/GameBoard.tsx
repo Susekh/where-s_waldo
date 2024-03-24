@@ -5,14 +5,10 @@ import ChooseOption from "./ChooseOption";
 function GameBoard(
   {
     src,
-    magnifierHeight = 100,
-    magnifieWidth = 100,
-    zoomLevel = 2
+    zoomLevel = 1.5
   }: {
     width?: string;
     height?: string;
-    magnifierHeight?: number;
-    magnifieWidth?: number;
     zoomLevel?: number;
     src : string;
   }
@@ -22,21 +18,23 @@ function GameBoard(
   const [showMagnifier, setShowMagnifier] = useState(false);
   const [[x, y], setXY] = useState([0, 0]);
   const [[imgWidth, imgHeight], setSize] = useState([0, 0]);
-  const [[cTop, cLeft], setPos] = useState([0, 0]);
+  const [[posTop, posLeft], setPos] = useState([0, 0]);
   const [isVisible, setVisible] =  useState(false);
 
-  function setDivLoc(top : number, left : number){
-    console.log(top)
-    console.log(left);
+  const magnifierHeight = 100
+  const  magnifierWidth = 100
+
+  function setDivLocation(top : number, left : number){
     setPos([top, left]);
     setVisible(true);
   }
 
-
   return (
     <div className=" h-fill">
       <div
-        onClick={() => setDivLoc(y - magnifierHeight / 2,  x - magnifieWidth / 2)}
+        onClick={() => {
+          setDivLocation(y - magnifierHeight / 2,  x - magnifierWidth / 2)
+          }}
        className="flex justify-center items-center relative ml-auto">
       <img 
         src={src}
@@ -63,8 +61,8 @@ function GameBoard(
      />
     <div 
         style={{
-            top : `${cTop}px`,
-            left : `${cLeft}px`
+            top : `${posTop}px`,
+            left : `${posLeft}px`
         }}
         className={`rounded-full ${isVisible ? "" : "hidden"} h-24 w-24 absolute border-4 border-red-500`}>
 
@@ -95,19 +93,18 @@ function GameBoard(
                       }
                     ]
                   } 
-                  cTop={cTop}
-                  cLeft={cLeft}
+                  posTop={posTop}
+                  posLeft={posLeft}
                   isVisible={isVisible} />
 
     <div
-        
         style={{
           // set size of magnifier
           height: `${magnifierHeight}px`,
-          width: `${magnifieWidth}px`,
+          width: `${magnifierWidth}px`,
           // move element center to cursor pos
           top: `${y - magnifierHeight / 2}px`,
-          left: `${x - magnifieWidth / 2}px`,
+          left: `${x - magnifierWidth / 2}px`,
           backgroundImage: `url('${src}')`,
 
           //calculate zoomed image size
@@ -116,7 +113,7 @@ function GameBoard(
           }px`,
 
           //calculate position of zoomed image.
-          backgroundPositionX: `${-x * zoomLevel + magnifieWidth / 2}px`,
+          backgroundPositionX: `${-x * zoomLevel + magnifierWidth / 2}px`,
           backgroundPositionY: `${-y * zoomLevel + magnifierHeight / 2}px`
         }}
         className={`absolute ${showMagnifier ? "" : "hidden"} 
@@ -125,7 +122,7 @@ function GameBoard(
                     opacity-100 
                     border border-gray-300 
                     bg-white bg-no-repeat bg-cover`}
-      ></div>
+      />
     </div>
     </div>
   )

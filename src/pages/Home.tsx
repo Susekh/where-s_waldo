@@ -6,7 +6,7 @@ export default function Home() {
   const navigate = useNavigate()
 
   return (
-    <div className="text-center p-16 flex h-screen flex-col gap-12">
+    <div className="text-center p-8 flex h-screen flex-col gap-12">
       <div className="">
       <p className="text-white sm:text-2xl">
       In a whirlwind world of colors and characters, Where's Waldo stands out in his iconic red and white stripes. With each turn of the page, the challenge begins to find him hidden amidst the chaos. Join the adventure, sharpen your eyes, and embark on the quest to locate Waldo in the most unexpected places.

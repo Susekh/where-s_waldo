@@ -6,6 +6,8 @@ import Home from './pages/Home.tsx'
 import LeaderBoard from './pages/LeaderBoard.tsx'
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import PlayGame from './pages/PlayGame.tsx'
+import LoginPage from './components/LoginPage.tsx'
+import SignupPage from './components/SignupPage.tsx'
 
 const router = createBrowserRouter([
   {
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
       {
         path : "/leader-board",
         element : <LeaderBoard />
+      },
+      {
+        path : "/log-in",
+        element : <LoginPage />
+      },
+      {
+        path : "/sign-up",
+        element : <SignupPage />
       }
     ]
   }
