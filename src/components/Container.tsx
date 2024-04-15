@@ -1,12 +1,10 @@
-import { ReactNode } from "react"
-
-type ContainerProps = {
-    children: ReactNode;
+type ReactNodeProps = {
+    children: JSX.Element;
 };
 
-function Container({ children } : ContainerProps) {
+function Container({ children } : ReactNodeProps) {
   return (
-    <main className=" h-fill bg-neutral-800 p-8 pt-20">
+    <main className=" h-fill bg-neutral-900 p-8 pt-20">
         { children }
     </main>
   )

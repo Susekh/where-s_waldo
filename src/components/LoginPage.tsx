@@ -1,9 +1,11 @@
 import { useState } from "react"
 import Container from "./Container"
 import { useNavigate } from "react-router-dom";
-import SendData from "../customHooks/sendData";
+import SendData from "../customHooks/SendDataToServer";
 import { MouseEvent } from "react";
 import { useApp } from "../context/appContext";
+
+import { Button } from "@/components/ui/button"
 
 
 
@@ -20,33 +22,37 @@ function LoginPage() {
         const response = await SendData(userName, password, "log-in");
         console.log(response.message);
         
-        if(response.message === "login successful"){
+        if(response.message === "User logged In Successfully"){
             navigate("/play-game")
             setLogoutBtn(true);
-        } else if ( response.message === "couldn't login user"){
-            alert("Could not login user");
-        }else if( response.message === "Server Error"){
-            alert("Server error encountered")
+            alert(response.message);
         } else {
-            alert("Error Occured while logging in")
+            alert(response.message.response.data.error);
         }
+        console.log("check res :: ",response);
+        console.log("User : ",response.user);
+        
     }
 
   return (
     <Container>
-        <h1 className="text-white text-3xl">Login</h1>
-        <form className="flex gap-4 flex-col text-2xl text-white mt-4">
-            <label>
-                Enter user name : <input onChange={(e) => setUserName(e.target.value)} value={userName} className="rounded-lg text-black" type="text" name="username" />
-            </label><br />
-            <label>
-                Enter Password : <input onChange={(e) => setPassword(e.target.value)} value={password} className="rounded-lg text-black" type="password" name="password" />
-            </label>
-            <button onClick={(e) => handleLogin(e)}  className="text-white bg-slate-700 p-2 w-24 rounded-xl">Submit</button>
-        </form>
-        <div className="flex gap-4 mt-4">
-            <p className="text-white mt-2">Not Signed up? : </p>
-            <button onClick={() => navigate("/sign-up")} className="rounded-xl bg-slate-700 text-white p-2 ">signup</button>
+        <div className="flex justify-center">
+            <div className=" md:w-1/3 w- border-2 rounded-lg p-16 bg-neutral-950">
+            <h1 className="text-white text-3xl">Login</h1>
+            <form className="flex gap-4 flex-col text-2xl text-white mt-4">
+                <label>
+                    Enter user name <br/> <input onChange={(e) => setUserName(e.target.value)} value={userName} required className="rounded-lg w-full text-black mt-4 text-lg p-2" type="text" name="username" />
+                </label><br />
+                <label>
+                    Enter Password <br/> <input onChange={(e) => setPassword(e.target.value)} value={password} required className="rounded-lg w-full text-black mt-4 text-lg p-2" type="password" name="password" />
+                </label>
+                <Button variant={"secondary"} onClick={(e) => handleLogin(e)} className="w-24" size={"lg"}>Submit</Button>
+            </form>
+            <div className="flex gap-4 mt-4">
+                <p className="text-white mt-2">Not Signed up? : </p>
+                <Button onClick={() => navigate("/sign-up")} >signup</Button>
+            </div>
+            </div>
         </div>
     </Container>
   )
