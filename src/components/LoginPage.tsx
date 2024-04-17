@@ -6,6 +6,7 @@ import { MouseEvent } from "react";
 import { useApp } from "../context/appContext";
 
 import { Button } from "@/components/ui/button"
+import { useToast } from "./ui/use-toast";
 
 
 
@@ -14,7 +15,7 @@ function LoginPage() {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const { setLogoutBtn } = useApp();
-
+    const { toast } = useToast();
     const navigate = useNavigate()
 
     const handleLogin = async(e : MouseEvent<HTMLButtonElement>) => {
@@ -23,11 +24,16 @@ function LoginPage() {
         console.log(response.message);
         
         if(response.message === "User logged In Successfully"){
-            navigate("/play-game")
+            navigate("/")
             setLogoutBtn(true);
-            alert(response.message);
+            toast({
+                title : "Login message.",
+                description : response.message
+            })
         } else {
-            alert(response.message.response.data.error);
+            toast({
+                title : response.message.response.data.error,
+            })
         }
         console.log("check res :: ",response);
         console.log("User : ",response.user);

@@ -10,6 +10,7 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import RevealOnScroll from "@/components/animation/RevealOnScroll"
+import AnimatedPage from "@/components/animation/AnimatedPage"
 
 interface Player {
   key: number;
@@ -33,7 +34,8 @@ function LeaderBoard() {
   }, [])
 
   return (
-    <div className="h-screen">
+    <AnimatedPage>
+      <div className="h-screen">
     
     <RevealOnScroll><p className="text-white font-BebasNeue mt-12 text-8xl">LeaderBoard</p></RevealOnScroll>
     
@@ -66,6 +68,8 @@ function LeaderBoard() {
       </TableBody>
     </Table>
     </div>
+    </AnimatedPage>
+    
   )
 }
 

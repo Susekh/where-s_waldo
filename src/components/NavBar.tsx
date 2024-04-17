@@ -4,6 +4,7 @@ import { useState } from "react";
 import FetchServerData from "../customHooks/FetchServerData";
 import useIsUserLoggedIn from "./auth/useIsUserLoggedIn";
 import { Menu, X } from "lucide-react";
+import { useToast } from "./ui/use-toast";
 
 
 interface navOptions {
@@ -42,6 +43,7 @@ function NavBar(){
     const { logoutBtn, setLogoutBtn } = useApp()
     const [isOpen, setIsOpen] = useState(false);
 
+    const { toast } = useToast();
 
     const toggleNavbar = () => {
         setIsOpen(!isOpen);
@@ -65,13 +67,17 @@ function NavBar(){
         
         if(response.message === "User logged Out"){
             //call the display msg function
-            alert("User Logged out");
+            toast({
+                title: response.message
+            })
             navigate("/log-in");
             setLogoutBtn(false);
         } else {
             //call the display msg and show the error
-            alert("Couldn't logout user")
-            console.log(response.message);
+            toast({
+                title: "Couldn't logout user",
+                description : response.message
+            })
         }
     }
 

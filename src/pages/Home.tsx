@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { SlCarousel, SlCarouselItem } from "@shoelace-style/shoelace/dist/react"
 import { Button, Card } from "antd"
 import RevealOnScroll from "@/components/animation/RevealOnScroll"
+import AnimatedPage from "@/components/animation/AnimatedPage"
 
 interface charList {
   key : number;
@@ -35,8 +36,9 @@ export default function Home() {
   const navigate = useNavigate()
 
   return (
-    <>
-    <div className="relative md:h-[32rem] w-full h-56  overflow-hidden flex">
+    <AnimatedPage>
+      <>
+      <div className="relative md:h-[32rem] w-full h-56  overflow-hidden flex">
       <SlCarousel autoplay loop mouseDragging scrolling={false} className=" absolute md:h-full w-full">
         <SlCarouselItem>
           <img  src="src/assets/where-s-waldo-island-lighthouse-uro1jzxt4ghasrbc.jpg" className="object-top blur-sm" alt="island" />
@@ -107,21 +109,23 @@ export default function Home() {
     </div>
 
 
-    <section className="mt-20">
+        <section className="mt-20">
         
        
-        <RevealOnScroll><p className="text-white text-9xl font-BebasNeue">MORE ABOUT WALDO</p></RevealOnScroll>
-        <RevealOnScroll>
-          <div className="md:flex mt-24 gap-44">
-            <img
-              src="src\assets\characters\waldo-home.png"
-              width={800}
-            />
-            <p className="text-white md:w-68 w-96 text-left text-xl mt-20">Where's Waldo?" was born as a series of captivating puzzle books by Martin Handford in 1987, where readers were tasked with spotting the elusive character in densely packed illustrations. Now, we've translated that enchanting experience into a digital format, allowing you to enjoy the hunt on your device.</p>
-          </div>
-        </RevealOnScroll>
+          <RevealOnScroll><p className="text-white text-9xl font-BebasNeue">MORE ABOUT WALDO</p></RevealOnScroll>
+          <RevealOnScroll>
+            <div className="md:flex mt-24 gap-44">
+              <img
+                src="src\assets\characters\waldo-home.png"
+                width={800}
+              />
+              <p className="text-white md:w-68 w-96 text-left text-xl mt-20">Where's Waldo?" was born as a series of captivating puzzle books by Martin Handford in 1987, where readers were tasked with spotting the elusive character in densely packed illustrations. Now, we've translated that enchanting experience into a digital format, allowing you to enjoy the hunt on your device.</p>
+            </div>
+          </RevealOnScroll>
         
-    </section>
-    </>
+        </section>
+      </>
+    
+    </AnimatedPage>
   )
 }

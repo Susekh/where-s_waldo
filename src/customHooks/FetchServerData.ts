@@ -10,9 +10,8 @@ const FetchServerData = async(path : string) => {
         return response.data
 
     } catch (error) {
+        return error
         
-        console.log("ERR ::",error.response.data);
-        return error.response.data
         
     }
 }

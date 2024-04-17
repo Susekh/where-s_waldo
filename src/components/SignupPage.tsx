@@ -4,11 +4,13 @@ import { useNavigate } from "react-router-dom";
 import SendData from "../customHooks/SendDataToServer";
 import { MouseEvent } from "react";
 import { Button } from "./ui/button";
+import { useToast } from "./ui/use-toast";
 
 function SignupPage() {
 
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
+    const { toast } = useToast()
 
     const navigate = useNavigate();
 
@@ -21,9 +23,13 @@ function SignupPage() {
       
         if(response.message === "User created Succesfully"){
             navigate("/log-in")
-            alert("User created succesfully")
+            toast({
+              title: response.message
+            })
         } else {
-          alert(response.message.response.data.error);
+          toast({
+            title : response.message.response.data.error
+          })
         }
     }
 

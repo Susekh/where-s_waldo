@@ -5,9 +5,10 @@ import { useInView, useAnimation, motion } from "framer-motion";
 interface props {
     children : JSX.Element;
     width?: string;
+    className? : string;
 }
 
-function RevealOnScroll( {children, width = "fit-content"}: props ) {
+function RevealOnScroll( {children, width = "fit-content", className}: props ) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
 
@@ -20,7 +21,7 @@ function RevealOnScroll( {children, width = "fit-content"}: props ) {
     }, [isInView]);
 
   return (
-    <div ref={ref} style={{width}} className="relative overflow-hidden">
+    <div ref={ref} style={{width}} className={className}>
         <motion.div
             variants={
                 {

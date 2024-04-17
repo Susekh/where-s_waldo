@@ -1,4 +1,6 @@
 import axios from "axios";
+import { useToast } from "./ui/use-toast";
+import { useApp } from "@/context/appContext";
 
 interface charObject {
     id: number;
@@ -8,14 +10,17 @@ interface charObject {
 
 
 
-function ChooseOption({ charList, posTop, posLeft, isVisible }:
-    { charList : charObject[], posTop : number, posLeft : number, isVisible : boolean}) 
+function ChooseOption({ charList, posTop, posLeft, isVisible, timeTaken }:
+    { charList : charObject[], posTop : number, posLeft : number, isVisible : boolean, timeTaken : number}) 
 {
+
+  const { setCharArr } = useApp();
     //send posTop , posLeft and radius of the circle when one of the character's button is clicked
 
     //coordinates of waldo : x:900 y:350, wizard : x:395 y:330, Odlaw x:158 y:333, Wenda x:1124 y:380
     const top = posTop;
     const left = posLeft;
+    const { toast } = useToast();
 
 
     const handleIsFound = async(character : string) => {
@@ -24,16 +29,27 @@ function ChooseOption({ charList, posTop, posLeft, isVisible }:
             divTop : top,
             divLeft : left,
             radius : 100,
+            timeTaken : timeTaken,
             character : character
           },{
             withCredentials : true
           })
 
-          console.log(response.data.correct);
-          console.log(response.data.charactersFound);
+          if(response.data.correct){
+            toast({
+              title : `You Found ${character}!`
+            })
+          } else {
+            toast({
+              title : `${character} is not there :(`
+            })
+          }
+          setCharArr(response.data.charactersFound);
           
         } catch (error) {
-          alert(error)
+          toast({
+            title : `${error}`
+          })
         }
     }
 
