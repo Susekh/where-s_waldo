@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useApp } from "@/context/appContext";
-import fetchApiData from "@/customHooks/FetchServerData";
+import fetchApiData from "@/utils/FetchServerData";
 
 
 

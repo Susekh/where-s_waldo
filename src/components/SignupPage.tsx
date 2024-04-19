@@ -1,11 +1,11 @@
 import Container from "./Container";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import SendData from "../customHooks/SendDataToServer";
+import SendData from "../utils/SendDataToServer";
 import { MouseEvent } from "react";
 import { Button } from "./ui/button";
 import { useToast } from "./ui/use-toast";
-
+import AnimatedPage from "./animation/AnimatedPage";
 function SignupPage() {
 
     const [userName, setUserName] = useState("");
@@ -35,6 +35,7 @@ function SignupPage() {
 
   return (
     <Container>
+      <AnimatedPage>
       <div className="flex justify-center">
             <div className=" md:w-1/3 w- border-2 rounded-lg p-16 bg-neutral-950">
               <h1 className="text-white text-3xl">Sign up</h1>
@@ -49,7 +50,7 @@ function SignupPage() {
               </form>
             </div>
       </div>
-        
+    </AnimatedPage>
 </Container>
   )
 }

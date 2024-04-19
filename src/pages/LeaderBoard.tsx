@@ -1,4 +1,4 @@
-import FetchServerData from "@/customHooks/FetchServerData"
+import FetchServerData from "@/utils/FetchServerData"
 import { useEffect, useState } from "react"
 import {
   Table,
@@ -27,9 +27,6 @@ function LeaderBoard() {
       const res = await FetchServerData("/leaderBoard");
       const resArray = Array.isArray(res) ? res : [res];
       setPlayersList(resArray);
-      console.log(resArray);
-      
-      
     })()
   }, [])
 

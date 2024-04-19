@@ -15,19 +15,16 @@ function ChooseOption({ charList, posTop, posLeft, isVisible, timeTaken }:
 {
 
   const { setCharArr } = useApp();
-    //send posTop , posLeft and radius of the circle when one of the character's button is clicked
 
     //coordinates of waldo : x:900 y:350, wizard : x:395 y:330, Odlaw x:158 y:333, Wenda x:1124 y:380
-    const top = posTop;
-    const left = posLeft;
     const { toast } = useToast();
 
 
     const handleIsFound = async(character : string) => {
         try {
           const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/gameLogics/isFound`, {
-            divTop : top,
-            divLeft : left,
+            divTop : posTop,
+            divLeft : posLeft,
             radius : 100,
             timeTaken : timeTaken,
             character : character
@@ -53,10 +50,20 @@ function ChooseOption({ charList, posTop, posLeft, isVisible, timeTaken }:
         }
     }
 
+
+    //To move chooseOption part to top when it goes too below the picture 
+  let styleTop
+  if(posTop > 600){
+    styleTop = posTop - 330
+  } else {
+    styleTop = 100 + posTop
+  }
+  
+
   return (
     <div
         style={{ 
-          top : `${100+posTop}px`,
+          top : `${styleTop}px`,
           left : `${posLeft-35}px`
         }} 
         className={`${isVisible ? "" : "hidden"} bg-neutral-800 absolute p-1 md:p-4 grid gap-2 rounded-xl`}>

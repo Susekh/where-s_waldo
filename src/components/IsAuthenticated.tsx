@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import FetchServerData from "@/customHooks/FetchServerData";
+import FetchServerData from "@/utils/FetchServerData";
 import { useToast } from "./ui/use-toast";
 
 type ReactNodeProps = {

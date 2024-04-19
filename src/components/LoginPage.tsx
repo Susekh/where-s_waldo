@@ -1,10 +1,10 @@
 import { useState } from "react"
 import Container from "./Container"
 import { useNavigate } from "react-router-dom";
-import SendData from "../customHooks/SendDataToServer";
+import SendData from "../utils/SendDataToServer";
 import { MouseEvent } from "react";
 import { useApp } from "../context/appContext";
-
+import AnimatedPage from "./animation/AnimatedPage";
 import { Button } from "@/components/ui/button"
 import { useToast } from "./ui/use-toast";
 
@@ -14,7 +14,7 @@ import { useToast } from "./ui/use-toast";
 function LoginPage() {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
-    const { setLogoutBtn } = useApp();
+    const { setLogoutBtn, setCharArr } = useApp();
     const { toast } = useToast();
     const navigate = useNavigate()
 
@@ -26,6 +26,7 @@ function LoginPage() {
         if(response.message === "User logged In Successfully"){
             navigate("/")
             setLogoutBtn(true);
+            setCharArr(response.charArr);
             toast({
                 title : "Login message.",
                 description : response.message
@@ -37,11 +38,11 @@ function LoginPage() {
         }
         console.log("check res :: ",response);
         console.log("User : ",response.user);
-        
     }
 
   return (
     <Container>
+      <AnimatedPage>
         <div className="flex justify-center">
             <div className=" md:w-1/3 w- border-2 rounded-lg p-16 bg-neutral-950">
             <h1 className="text-white text-3xl">Login</h1>
@@ -60,6 +61,7 @@ function LoginPage() {
             </div>
             </div>
         </div>
+      </AnimatedPage>
     </Container>
   )
 }

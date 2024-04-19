@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ChooseOption from "./ChooseOption";
-import FetchServerData from "@/customHooks/FetchServerData";
+import FetchServerData from "@/utils/FetchServerData";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -21,12 +21,14 @@ import { useApp } from "@/context/appContext";
 function GameBoard(
   {
     src,
-    zoomLevel = 1.5
+    zoomLevel = 1.5,
+    magnifierRadius
   }: {
     width?: string;
     height?: string;
     zoomLevel?: number;
     src : string;
+    magnifierRadius : number
   }
 ) {
 
@@ -41,8 +43,8 @@ function GameBoard(
   const { toast } = useToast();
   const navigate = useNavigate();
 
-  const magnifierHeight = 100
-  const  magnifierWidth = 100
+  const magnifierHeight = magnifierRadius
+  const  magnifierWidth = magnifierRadius
 
   function setDivLocation(top : number, left : number){
     setPos([top, left]);
@@ -53,7 +55,7 @@ function GameBoard(
     try {
         const res = await FetchServerData("/gameLogics/restart");
         if (res) {
-            console.log(res);
+            console.log("res from restart : ",res);
             setIsGameOver(false);
             setGameTime(0);
             setCharArr([]);
@@ -63,7 +65,8 @@ function GameBoard(
             title: `${error}`
         });
     }
-}
+  }
+
   useEffect(() => {
     if(charArr.length === 4){
       setIsGameOver(true);
@@ -75,10 +78,29 @@ function GameBoard(
   useEffect(() => {
     (() => {
          setTimeout(() => {
-      setGameTime(gameTime+1);
+      const updatedGameTIme = gameTime+1;
+      setGameTime(updatedGameTIme);
     }, 1000);
-    })()
+    })();
   })
+
+
+  useEffect(()=> {
+    
+     
+    (async() => {
+      try {
+          const res = await FetchServerData("/gameLogics/charArr");
+          console.log(res);
+          setCharArr(res.charArr);
+      } catch (error) {
+        toast({
+          title: `${error}`
+      });
+      }
+    })()
+  }, [])
+  
 
   return (
     <div className="flex flex-col gap-4 items-center">
@@ -131,8 +153,6 @@ function GameBoard(
           setShowMagnifier(false);
         }}
         onMouseMove={(e) => {
-          // update cursor positionf
-          // Update cursor position
           const { top, left } = e.currentTarget.getBoundingClientRect();
           const mouseX = e.clientX - left;
           const mouseY = e.clientY - top;
@@ -143,9 +163,11 @@ function GameBoard(
     <div 
         style={{
             top : `${posTop}px`,
-            left : `${posLeft}px`
+            left : `${posLeft}px`,
+            height : magnifierHeight,
+            width : magnifierWidth
         }}
-        className={`rounded-full ${isVisible ? "" : "hidden"} h-24 w-24 absolute border-4 border-red-500`}>
+        className={`rounded-full ${isVisible ? "" : "hidden"} absolute border-2 md:border-4 border-red-500`}>
 
     </div>
 
