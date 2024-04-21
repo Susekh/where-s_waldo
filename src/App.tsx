@@ -6,22 +6,23 @@ import { AppProvider } from "./context/appContext"
 import { useState } from "react"
 
 
+
 function App() {
   const [logoutBtn, setLogoutBtn] = useState(false);
   const [gameTime, setGameTime] = useState(0);
   const [charArr, setCharArr] = useState<string[]>([]);
 
 
+
   return (
     <>
     <AppProvider value={{logoutBtn, setLogoutBtn, gameTime, setGameTime, charArr, setCharArr}}>
-      <NavBar />
-      <Container>
-        <Outlet />
-      </Container>
-      <Footer />
+        <NavBar />
+        <Container>
+          <Outlet />
+        </Container>
+        <Footer />
     </AppProvider>
-    
     </>
   )
 }

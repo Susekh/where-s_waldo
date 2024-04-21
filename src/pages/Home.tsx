@@ -4,6 +4,7 @@ import { Button, Card } from "antd"
 import RevealOnScroll from "@/components/animation/RevealOnScroll"
 import AnimatedPage from "@/components/animation/AnimatedPage"
 
+
 interface charList {
   key : number;
   name : string;
@@ -65,7 +66,7 @@ export default function Home() {
             <div className="grid">
             <Card 
             key={char.key}
-            className=" w-96 h-64 bg-neutral-300 hover:bg-red-900 overflow-clip rounded-none border-none" 
+            className=" md:w-96 h-64 bg-neutral-300 hover:bg-red-900 overflow-clip rounded-none border-none" 
             cover={
               <img
                 alt={char.name}
@@ -91,7 +92,7 @@ export default function Home() {
       
       <RevealOnScroll>
         <div className=" flex md:flex-row flex-col-reverse  md:gap-72">
-          <div className="w-96 md:ml-28 md:flex md:flex-col mt-12">
+          <div className="md:w-96 md:ml-28 md:flex md:flex-col mt-12">
             <h2 className=" font-BebasNeue text-7xl text-white">WHO IS WALDO?</h2>
             <p className="text-white text-left mt-8">
             In a whirlwind world of colors and characters, Waldo stands out in his iconic red and white stripes. With each turn of the page, the challenge begins to find him hidden amidst the chaos. Join the adventure, sharpen your eyes, and embark on the quest to locate Waldo in the most unexpected places.
@@ -100,7 +101,7 @@ export default function Home() {
           </div>
 
           <div className="overflow-hidden">
-            <img src="/images/characters/waldo_wanted.png" className="h-[35rem] w-[30rem]" alt="" />
+            <img src="/images/characters/waldo_wanted.png" className="md:h-[35rem] md:w-[30rem]" alt="" />
           </div>
         </div>
       </RevealOnScroll>
@@ -119,7 +120,7 @@ export default function Home() {
                 src="/images/characters/waldo-home.png"
                 width={800}
               />
-              <p className="text-white md:w-68 w-96 text-left text-xl mt-20">Where's Waldo?" was born as a series of captivating puzzle books by Martin Handford in 1987, where readers were tasked with spotting the elusive character in densely packed illustrations. Now, we've translated that enchanting experience into a digital format, allowing you to enjoy the hunt on your device.</p>
+              <p className="text-white md:w-68 md:w-96 text-left text-xl mt-20">Where's Waldo?" was born as a series of captivating puzzle books by Martin Handford in 1987, where readers were tasked with spotting the elusive character in densely packed illustrations. Now, we've translated that enchanting experience into a digital format, allowing you to enjoy the hunt on your device.</p>
             </div>
           </RevealOnScroll>
         

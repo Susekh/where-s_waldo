@@ -66,15 +66,15 @@ function ChooseOption({ charList, posTop, posLeft, isVisible, timeTaken }:
           top : `${styleTop}px`,
           left : `${posLeft-35}px`
         }} 
-        className={`${isVisible ? "" : "hidden"} bg-neutral-800 absolute p-1 md:p-4 grid gap-2 rounded-xl`}>
+        className={`${isVisible ? "" : "hidden"} bg-neutral-800 w-20 h-30 md:w-fit md:h-fit absolute p-1 md:p-4 grid gap-2 rounded-xl`}>
             {   
                 charList.map((char) => (
                     charArr.includes(char.name) ?
                        null 
-                       : 
-                       <div key={char.id} className=" bg-neutral-200 rounded-lg p:1 md:p-2">
-                        <img  src={char.src} className=" inline w-3 md:w-6"  />
-                        <button onClick={() => handleIsFound(char.name)} className=" bg-neutral-300 p-2 h-9 lg:w-24 lg:h-12 lg:ml-2  rounded-lg hover:bg-red-200 text-xs md:text-lg font-bold">{char.name}</button>
+                       :
+                       <div key={char.id} className=" bg-neutral-200 ml-1 w-16 p-1 flex md:block md:w-fit rounded-lg p:1 md:p-2">
+                        <img  src={char.src} className=" inline w-2 md:w-6"  />
+                            <button onClick={() => handleIsFound(char.name)} className=" bg-neutral-300 w-16 h-5 lg:w-24 lg:h-12 lg:ml-2  rounded-lg hover:bg-red-200 text-xs md:text-lg font-bold">{char.name}</button>
                       </div>
                 ))
             }

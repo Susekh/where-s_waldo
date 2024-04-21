@@ -9,12 +9,11 @@ function PlayGame() {
 
     const { setGameTime } = useApp()
 
-  const isDesktopOrLaptop = useMediaQuery({
-      query: '(min-width: 1224px)'
+  const isMobile = useMediaQuery({
+      query: '(min-width: 767px)'
   });
 
-  const magnifierRadius = isDesktopOrLaptop ? 100 : 30;
-  console.log(magnifierRadius);
+  const magnifierRadius = isMobile ? 100 : 30;
   
   useEffect(() => {
     const timerId = setTimeout(() => {

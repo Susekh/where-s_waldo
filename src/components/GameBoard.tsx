@@ -15,6 +15,7 @@ import {
 import { useToast } from "./ui/use-toast";
 import { useNavigate } from "react-router-dom";
 import { useApp } from "@/context/appContext";
+import { useMediaQuery } from "react-responsive";
 
 
 
@@ -45,6 +46,11 @@ function GameBoard(
 
   const magnifierHeight = magnifierRadius
   const  magnifierWidth = magnifierRadius
+
+
+  const isMobile = useMediaQuery({
+    query: '(min-width: 767px)'
+  });
 
   function setDivLocation(top : number, left : number){
     setPos([top, left]);
@@ -87,7 +93,6 @@ function GameBoard(
           const res = await FetchServerData("/gameLogics/charArr");
           setCharArr(res.charArr);
           setGameTime(res.time);
-          console.log(res);
           
       } catch (error) {
         toast({
@@ -133,7 +138,7 @@ function GameBoard(
         onClick={() => {
           setDivLocation(y - magnifierHeight / 2,  x - magnifierWidth / 2)
           }}
-       className="flex justify-center items-center relative ml-auto">
+       className="flex justify-center items-center relative ml-auto cursor-pointer">
         
       <img 
         src={src}
@@ -143,7 +148,9 @@ function GameBoard(
           const elem = e.currentTarget;
           const { width, height } = elem.getBoundingClientRect();
           setSize([width, height]);
+          if(isMobile){
           setShowMagnifier(true);
+        }
         }}
         onMouseLeave={() => {
           setShowMagnifier(false);
@@ -192,8 +199,8 @@ function GameBoard(
                       }
                     ]
                   } 
-                  posTop={posTop}
-                  posLeft={posLeft}
+                  posTop={!isMobile ? posTop-70 : posTop}
+                  posLeft={!isMobile ? posLeft+10 : posLeft}
                   isVisible={isVisible}
                   timeTaken={gameTime}
                    />
@@ -203,6 +210,7 @@ function GameBoard(
           // set size of magnifier
           height: `${magnifierHeight}px`,
           width: `${magnifierWidth}px`,
+
           // move element center to cursor pos
           top: `${y - magnifierHeight / 2}px`,
           left: `${x - magnifierWidth / 2}px`,

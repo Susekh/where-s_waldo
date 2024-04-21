@@ -21,7 +21,6 @@ function LoginPage() {
     const handleLogin = async(e : MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
         const response = await SendData(userName, password, "log-in");
-        console.log(response.message);
         
         if(response.message === "User logged In Successfully"){
             navigate("/")
@@ -36,8 +35,6 @@ function LoginPage() {
                 title : response.message.response.data.error,
             })
         }
-        console.log("check res :: ",response);
-        console.log("User : ",response.user);
     }
 
   return (
