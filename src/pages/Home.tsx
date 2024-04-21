@@ -16,17 +16,17 @@ const chars : Array<charList> =
     {
       key : 9893845,
       name : "waldo",
-      src : "src/assets/characters/homePageImgs/waldo.png"
+      src : "public/images/characters/homePageImgs/waldo.png"
     },
     {
       key: 9987332,
       name : "wenda",
-      src : "src/assets/characters/homePageImgs/wenda.png"
+      src : "public/images/characters/homePageImgs/wenda.png"
     },
     {
       key:9998734,
       name : "odlaw",
-      src : "src/assets/characters/homePageImgs/odlaw.png"
+      src : "public/images/characters/homePageImgs/odlaw.png"
     }
   ]
 
@@ -41,10 +41,10 @@ export default function Home() {
       <div className="relative md:h-[32rem] w-full h-56  overflow-hidden flex">
       <SlCarousel autoplay loop mouseDragging scrolling={false} className=" absolute md:h-full w-full">
         <SlCarouselItem>
-          <img  src="src/assets/where-s-waldo-island-lighthouse-uro1jzxt4ghasrbc.jpg" className="object-top blur-sm" alt="island" />
+          <img  src="public/images/where-s-waldo-island-lighthouse-uro1jzxt4ghasrbc.jpg" className="object-top blur-sm" alt="island" />
         </SlCarouselItem>
         <SlCarouselItem>
-          <img src="src/assets/where-s-waldo-comic-convention-45idn1a9ald1kq5v.jpg" className="blur-sm" alt="comic" />
+          <img src="public/images/where-s-waldo-comic-convention-45idn1a9ald1kq5v.jpg" className="blur-sm" alt="comic" />
         </SlCarouselItem>
       </SlCarousel>
       <div className="absolute w-full md:translate-x-1/3 md:translate-y-2/3 flex flex-col">
@@ -100,7 +100,7 @@ export default function Home() {
           </div>
 
           <div className="overflow-hidden">
-            <img src="src\assets\characters\waldo_wanted.png" className="h-[35rem] w-[30rem]" alt="" />
+            <img src="public\images\characters\waldo_wanted.png" className="h-[35rem] w-[30rem]" alt="" />
           </div>
         </div>
       </RevealOnScroll>
@@ -116,7 +116,7 @@ export default function Home() {
           <RevealOnScroll>
             <div className="md:flex mt-24 gap-44">
               <img
-                src="src\assets\characters\waldo-home.png"
+                src="public\images\characters\waldo-home.png"
                 width={800}
               />
               <p className="text-white md:w-68 w-96 text-left text-xl mt-20">Where's Waldo?" was born as a series of captivating puzzle books by Martin Handford in 1987, where readers were tasked with spotting the elusive character in densely packed illustrations. Now, we've translated that enchanting experience into a digital format, allowing you to enjoy the hunt on your device.</p>

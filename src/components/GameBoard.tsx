@@ -73,17 +73,7 @@ function GameBoard(
     }
   }, [charArr])
 
-  
 
-  useEffect(() => {
-    const timerId = setTimeout(() => {
-        setGameTime((prevGameTime) => prevGameTime + 1);
-    }, 1000);
-
-    return () => {
-        clearTimeout(timerId);
-    };
-  });
 
 
 
@@ -179,22 +169,22 @@ function GameBoard(
                       {
                         id : 1,
                         name : "WALDO",
-                        src : "src/assets/characters/Waldo.png"
+                        src : "public/images/characters/Waldo.png"
                       },
                       {
                         id : 2,
                         name : "WIZARD",
-                        src : "src/assets/characters/Wizard.png"
+                        src : "public/images/characters/Wizard.png"
                       },
                       {
                         id : 3,
                         name : "WENDA",
-                        src : "src/assets/characters/Wenda.png"
+                        src : "public/images/characters/Wenda.png"
                       },
                       {
                         id : 4,
                         name : "ODLAW",
-                        src : "src/assets/characters/Odlaw.png"
+                        src : "public/images/characters/Odlaw.png"
                       }
                     ]
                   } 
