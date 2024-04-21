@@ -28,7 +28,7 @@ function PlayGame() {
 
   return (
       <RevealOnScroll>
-          <GameBoard src="public/images/beach.webp" magnifierRadius={magnifierRadius} />
+          <GameBoard src="/images/beach.webp" magnifierRadius={magnifierRadius} />
       </RevealOnScroll>
   );
 }

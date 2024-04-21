@@ -169,22 +169,22 @@ function GameBoard(
                       {
                         id : 1,
                         name : "WALDO",
-                        src : "public/images/characters/Waldo.png"
+                        src : "/images/characters/Waldo.png"
                       },
                       {
                         id : 2,
                         name : "WIZARD",
-                        src : "public/images/characters/Wizard.png"
+                        src : "/images/characters/Wizard.png"
                       },
                       {
                         id : 3,
                         name : "WENDA",
-                        src : "public/images/characters/Wenda.png"
+                        src : "/images/characters/Wenda.png"
                       },
                       {
                         id : 4,
                         name : "ODLAW",
-                        src : "public/images/characters/Odlaw.png"
+                        src : "/images/characters/Odlaw.png"
                       }
                     ]
                   } 
