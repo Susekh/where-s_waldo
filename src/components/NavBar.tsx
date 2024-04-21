@@ -58,7 +58,7 @@ function NavBar(){
                     <li
                     key={list.key} 
                     onClick={() =>navBarClickHander(list.slug, device)}  
-                    className={` text-white font-Jersey10 font-bold  ${device === "mobile" ? "text-sm" : "text-xl"} hover:cursor-pointer hover:border-b-4  border-red-500`}
+                    className={` text-white font-Jersey10 font-bold pl-2 pr-2  ${device === "mobile" ? "text-sm" : "text-xl"} duration-100 ease-in-out hover:cursor-pointer hover:bg-neutral-800 rounded-md  hover:border-b-4  border-red-500`}
                     >{list.name}</li>
                 ))
             )

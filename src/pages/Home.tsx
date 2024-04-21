@@ -70,7 +70,7 @@ export default function Home() {
               <img
                 alt={char.name}
                 src={char.src}
-                className="overflow-hidden object-cover"
+                className="overflow-hidden hover:opacity-25 transition-opacity duration-300 ease-in-out object-cover"
               />
               }
             />

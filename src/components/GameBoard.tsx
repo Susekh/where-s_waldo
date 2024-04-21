@@ -76,13 +76,15 @@ function GameBoard(
   
 
   useEffect(() => {
-    (() => {
-         setTimeout(() => {
-      const updatedGameTIme = gameTime+1;
-      setGameTime(updatedGameTIme);
+    const timerId = setTimeout(() => {
+        setGameTime((prevGameTime) => prevGameTime + 1);
     }, 1000);
-    })();
-  })
+
+    return () => {
+        clearTimeout(timerId);
+    };
+  });
+
 
 
   useEffect(()=> {
@@ -91,8 +93,8 @@ function GameBoard(
     (async() => {
       try {
           const res = await FetchServerData("/gameLogics/charArr");
-          console.log(res);
           setCharArr(res.charArr);
+          setGameTime(res.time);
       } catch (error) {
         toast({
           title: `${error}`

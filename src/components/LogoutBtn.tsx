@@ -49,14 +49,14 @@ function Logout({lists_r} : Props) {
                                     key={list.key} 
                                     onClick={() =>navigate(list.slug)}  
                                     className="
-                                     text-white font-Jersey10  font-bold  text-xl hover:cursor-pointer hover:border-b-4 hover:border-red-500
+                                     text-white pl-2 pr-2 font-Jersey10 duration-100 ease-in-out  hover:bg-neutral-800 rounded-md   font-bold  text-xl hover:cursor-pointer hover:border-b-4 hover:border-red-500
                                      "
                                      >{list.name}</li> 
                                      : 
                                      <li
                                      onClick = {handleLogout}
                                      className="
-                                     text-white font-Jersey10  font-bold text-sm md:text-xl hover:border-b-4 hover:border-red-500
+                                     text-white pl-2 pr-2 font-Jersey10  duration-100 ease-in-out hover:cursor-pointer hover:bg-neutral-800 rounded-md  font-bold text-sm md:text-xl hover:border-b-4 hover:border-red-500
                                      "
                                      >
                                         LOGOUT
