@@ -68,6 +68,8 @@ function GameBoard(
   }
 
   useEffect(() => {
+    console.log("charArr : ", charArr);
+    
     if(charArr.length === 4){
       setIsGameOver(true);
     }
@@ -85,6 +87,8 @@ function GameBoard(
           const res = await FetchServerData("/gameLogics/charArr");
           setCharArr(res.charArr);
           setGameTime(res.time);
+          console.log(res);
+          
       } catch (error) {
         toast({
           title: `${error}`
@@ -122,7 +126,7 @@ function GameBoard(
               <p className="text-white">TIME TAKEN : {gameTime} s</p>
         </div>
         <div className=" bg-neutral-700 p-8 rounded-lg">
-              <p className="text-white">CHARACTERS LEFT : {4 - charArr.length}</p>
+              <p className="text-white">CHARACTERS LEFT : {4 - (charArr ? charArr.length : 0)}</p>
         </div>
       </div>
       <div

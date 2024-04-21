@@ -26,7 +26,7 @@ function LoginPage() {
         if(response.message === "User logged In Successfully"){
             navigate("/")
             setLogoutBtn(true);
-            setCharArr(response.charArr);
+            setCharArr(response.charArr ? response.charArr : []);
             toast({
                 title : "Login message.",
                 description : response.message
