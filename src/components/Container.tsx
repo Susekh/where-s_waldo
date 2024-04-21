@@ -6,7 +6,7 @@ type ReactNodeProps = {
 
 function Container({ children } : ReactNodeProps) {
   return (
-    <main className=" bg-neutral-900 h-fit p-8 pt-20">
+    <main className=" bg-neutral-900 h-fit md:pl-4 md:pr-4 pl-2 pr-2 pb-6  pt-20">
         { children }
         <Toaster/>
     </main>
