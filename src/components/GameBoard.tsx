@@ -55,6 +55,8 @@ function GameBoard(
   function setDivLocation(top : number, left : number){
     setPos([top, left]);
     setVisible(true);
+    console.log(`x : ${x} y : ${y}`);
+    
   }
 
   async function handleGameOver() {
@@ -199,8 +201,8 @@ function GameBoard(
                       }
                     ]
                   } 
-                  posTop={!isMobile ? posTop-70 : posTop}
-                  posLeft={!isMobile ? posLeft+10 : posLeft}
+                  posTop={posTop}
+                  posLeft={posLeft}
                   isVisible={isVisible}
                   timeTaken={gameTime}
                    />
