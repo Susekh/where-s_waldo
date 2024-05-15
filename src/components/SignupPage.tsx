@@ -17,9 +17,6 @@ function SignupPage() {
     const handleSignUp = async(e : MouseEvent<HTMLButtonElement>) => {
       e.preventDefault()
       const response = await SendData(userName, password, "sign-up");
-      console.log(userName);
-      
-      console.log(response.message);
       
         if(response.message === "User created Succesfully"){
             navigate("/log-in")

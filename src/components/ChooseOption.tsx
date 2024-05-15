@@ -19,7 +19,6 @@ function ChooseOption({ charList, posTop, posLeft, isVisible, timeTaken }:
 
     //coordinates of waldo : x:900 y:350, wizard : x:395 y:330, Odlaw x:158 y:333, Wenda x:1124 y:380
     const { toast } = useToast();
-    console.log(`posTop : ${posTop} posLeft : ${posLeft}`);
     const isMobile = useMediaQuery({
       query: '(max-width: 767px)'
     });
@@ -29,8 +28,6 @@ function ChooseOption({ charList, posTop, posLeft, isVisible, timeTaken }:
 
     const handleIsFound = async(character : string) => {
         try {
-          console.log(posTop);
-  console.log(posLeft);
           const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/gameLogics/isFound`, {
             divTop : isMobile? posTop + 230  : posTop,
             divLeft : isMobile? posLeft + 660  : posLeft,

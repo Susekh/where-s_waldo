@@ -16,16 +16,15 @@ function Container({ children } : ReactNodeProps) {
       if(res.message === "server is working"){
         setLoading(false);
       }
-      console.log(res);
       
     })()
   }, [])
 
   return (
-    <main className=" bg-neutral-900 h-fit md:pl-4 md:pr-4 pl-2 pr-2 pb-6  pt-20">
+    <main className="h-fit md:pl-4 md:pr-4 pl-2 pr-2 pb-6  pt-20">
         { 
         loading? 
-        <ServerLoader />
+        <ServerLoader para="The server will enter sleep mode after a period of inactivity to minimize costs. It will awaken promptly when needed." />
         :
         children
          }

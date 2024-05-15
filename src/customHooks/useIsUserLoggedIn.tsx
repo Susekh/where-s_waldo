@@ -8,21 +8,20 @@ import { useToast } from "@/components/ui/use-toast";
 function useIsUserLoggedIn(){
     const { logoutBtn, setLogoutBtn } = useApp()
     const { toast } = useToast()
-
+    
     useEffect(() => {
         (async() => {
             const res = await fetchApiData("/auth/isAuthenticated");
+            
+            const resErr = res?.response?.data?.error || "Token found";
     
-    
-            if (res.error === "Token not found") {
+            if ( resErr === "Token not found") {
                 setLogoutBtn(false);
-            } else if (res.message.toString() === "User is Authenticated.") {
-                console.log("User is authenticated. Logging in.");
+            } else if (res.message === "User is Authenticated.") {
                 setLogoutBtn(true);
-                
             } else {
                 toast({
-                    title : `Unexpected response : ${res}`
+                    title : `Unexpected response : ${res.message}`
                 })
             }
         })();

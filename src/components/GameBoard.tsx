@@ -55,7 +55,6 @@ function GameBoard(
   function setDivLocation(top : number, left : number){
     setPos([top, left]);
     setVisible(true);
-    console.log(`x : ${x} y : ${y}`);
     
   }
 
@@ -63,7 +62,6 @@ function GameBoard(
     try {
         const res = await FetchServerData("/gameLogics/restart");
         if (res) {
-            console.log("res from restart : ",res);
             setIsGameOver(false);
             setGameTime(0);
             setCharArr([]);
@@ -76,8 +74,6 @@ function GameBoard(
   }
 
   useEffect(() => {
-    console.log("charArr : ", charArr);
-    
     if(charArr.length === 4){
       setIsGameOver(true);
     }

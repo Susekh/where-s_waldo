@@ -3,10 +3,11 @@ import { SlCarousel, SlCarouselItem } from "@shoelace-style/shoelace/dist/react"
 import { Button, Card } from "antd"
 import RevealOnScroll from "@/components/animation/RevealOnScroll"
 import AnimatedPage from "@/components/animation/AnimatedPage"
+import { v4 as uuidv4 } from 'uuid';
 
 
 interface charList {
-  key : number;
+  id : string;
   name : string;
   src : string;
 }
@@ -15,17 +16,17 @@ interface charList {
 const chars : Array<charList> = 
   [
     {
-      key : 9893845,
+      id : uuidv4(),
       name : "waldo",
       src : "/images/characters/homePageImgs/waldo.png"
     },
     {
-      key: 9987332,
+      id : uuidv4(),
       name : "wenda",
       src : "/images/characters/homePageImgs/wenda.png"
     },
     {
-      key:9998734,
+      id : uuidv4(),
       name : "odlaw",
       src : "/images/characters/homePageImgs/odlaw.png"
     }
@@ -65,7 +66,7 @@ export default function Home() {
           chars.map((char) => (
             <div className="grid">
             <Card 
-            key={char.key}
+            key={char.id}
             className=" md:w-96 h-64 bg-neutral-300 hover:bg-red-900 overflow-clip rounded-none border-none" 
             cover={
               <img

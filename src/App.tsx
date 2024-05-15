@@ -15,7 +15,7 @@ function App() {
 
 
   return (
-    <>
+    <div className=" min-h-screen flex flex-col bg-neutral-900">
     <AppProvider value={{logoutBtn, setLogoutBtn, gameTime, setGameTime, charArr, setCharArr}}>
         <NavBar />
         <Container>
@@ -23,7 +23,7 @@ function App() {
         </Container>
         <Footer />
     </AppProvider>
-    </>
+    </div>
   )
 }
 

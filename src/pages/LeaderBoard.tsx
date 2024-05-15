@@ -32,9 +32,9 @@ function LeaderBoard() {
 
   return (
     <AnimatedPage>
-      <div className="h-screen">
+      <div>
     
-    <RevealOnScroll><p className="text-white font-BebasNeue mt-12 text-8xl">LeaderBoard</p></RevealOnScroll>
+    <RevealOnScroll><p className="text-white font-BebasNeue mt-12 text-5xl md:text-8xl">LeaderBoard</p></RevealOnScroll>
     
     
     <Table className="mt-12">

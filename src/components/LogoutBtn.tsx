@@ -4,8 +4,9 @@ import { useToast } from "./ui/use-toast";
 import { useApp } from "@/context/appContext";
 
 
+
 type NavOption = {
-    key: number;
+    id: string;
     name: string;
     slug: string;
 }
@@ -42,26 +43,25 @@ function Logout({lists_r} : Props) {
   return (
     <>
         {
-                            lists_r.map((list) => (
-                    
-                                !logoutBtn? 
-                                    <li
-                                    key={list.key} 
-                                    onClick={() =>navigate(list.slug)}  
-                                    className="
-                                     text-white pl-2 pr-2 font-Jersey10 duration-100 ease-in-out  hover:bg-neutral-800 rounded-md   font-bold  text-xl hover:cursor-pointer hover:border-b-4 hover:border-red-500
-                                     "
-                                     >{list.name}</li> 
-                                     : 
-                                     <li
-                                     onClick = {handleLogout}
-                                     className="
-                                     text-white pl-2 pr-2 font-Jersey10  duration-100 ease-in-out hover:cursor-pointer hover:bg-neutral-800 rounded-md  font-bold text-sm md:text-xl hover:border-b-4 hover:border-red-500
-                                     "
-                                     >
-                                        LOGOUT
-                                     </li>
-                                ))
+        lists_r.map((list) => (
+            !logoutBtn? 
+                <li
+                    key={list.id} 
+                    onClick={() =>navigate(list.slug)}  
+                    className="
+                            text-white pl-2 pr-2 font-Jersey10 duration-100 ease-in-out  md:hover:bg-neutral-800 rounded-md   font-bold  text-xl md:hover:cursor-pointer md:hover:border-b-4 md:hover:border-red-500
+                              "
+                >{list.name}</li> 
+                : 
+                <li
+                    onClick = {handleLogout}
+                    className="
+                             text-white pl-2 pr-2 font-Jersey10  duration-100 ease-in-out hover:cursor-pointer md:hover:bg-neutral-800 rounded-md  font-bold text-sm md:text-xl md:hover:border-b-4 md:hover:border-red-500
+                              "
+                >
+                LOGOUT
+                </li>
+                ))
         }
     </>
   )

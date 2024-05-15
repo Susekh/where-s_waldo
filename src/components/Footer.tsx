@@ -2,7 +2,7 @@ import { Github } from 'lucide-react';
 
 function Footer() {
   return (
-    <footer className="flex flex-col justify-center items-center gap-8  p-10 bg-neutral-700 text-gray-200">
+    <footer className="flex flex-col justify-center items-center mt-auto gap-8 p-10 bg-neutral-700 text-gray-200">
     <nav className="grid grid-flow-col gap-4">
       <a className="link link-hover">About me</a>
       <a className="link link-hover" href='mailto:subhranshukhilar@outlook.com'>Contact</a>

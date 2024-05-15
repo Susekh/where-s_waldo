@@ -3,27 +3,29 @@ import { useState } from "react";
 import useIsUserLoggedIn from "../customHooks/useIsUserLoggedIn";
 import { Menu, X } from "lucide-react";
 import Logout from "./LogoutBtn";
+import { v4 as uuidv4 } from 'uuid';
+
 
 
 interface navOptions {
-    key : number;
+    id : string;
     name : string;
     slug : string
 }
 
 const lists_l: Array<navOptions> = [
     {   
-        key : 14363456,
+        id : uuidv4(),
         name : "HOME",
         slug : "/"
     },
     {
-        key : 265463345,
+        id : uuidv4(),
         name : "PLAY",
         slug : "/play-game",
     },
     {
-        key : 345243,
+        id : uuidv4(),
         name : "LEADER BOARD",
         slug : "/leader-board"
     }
@@ -31,7 +33,7 @@ const lists_l: Array<navOptions> = [
 
 const lists_r : Array<navOptions> = [
     {
-        key : 4524543,
+        id : uuidv4(),
         name : 'LOGIN',
         slug : '/log-in'
     }
@@ -56,9 +58,9 @@ function NavBar(){
     const renderList = (lists : Array<navOptions>, device : string) => {
               return (  lists.map((list : navOptions) => (
                     <li
-                    key={list.key} 
+                    key={list.id} 
                     onClick={() =>navBarClickHander(list.slug, device)}  
-                    className={` text-white font-Jersey10 font-bold pl-2 pr-2  ${device === "mobile" ? "text-sm" : "text-xl"} duration-100 ease-in-out hover:cursor-pointer hover:bg-neutral-800 rounded-md  hover:border-b-4  border-red-500`}
+                    className={` text-white font-Jersey10 font-bold pl-2 pr-2  ${device === "mobile" ? "text-sm" : "text-xl"} duration-100 ease-in-out hover:cursor-pointer md:hover:bg-neutral-800 rounded-md  hover:border-b-4  md:border-red-500`}
                     >{list.name}</li>
                 ))
             )
