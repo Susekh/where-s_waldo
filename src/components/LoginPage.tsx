@@ -22,7 +22,7 @@ function LoginPage() {
         e.preventDefault()
         const response = await SendData(userName, password, "log-in");
         
-        if(response.message === "User logged In Successfully"){
+        if(response.success){
             navigate("/")
             setLogoutBtn(true);
             setCharArr(response.charArr ? response.charArr : []);

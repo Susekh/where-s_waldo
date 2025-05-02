@@ -11,8 +11,6 @@ const FetchServerData = async(path : string) => {
 
     } catch (error) {
         return error
-        
-        
     }
 }
 

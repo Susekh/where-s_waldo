@@ -18,7 +18,7 @@ function SignupPage() {
       e.preventDefault()
       const response = await SendData(userName, password, "sign-up");
       
-        if(response.message === "User created Succesfully"){
+        if(response.success){
             navigate("/log-in")
             toast({
               title: response.message

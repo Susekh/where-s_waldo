@@ -14,10 +14,12 @@ const SendData = async(userName : string, password : string, route : string) => 
           "Content-Type": "application/json",
           "X-Requested-With": "XMLHttpRequest"
         }});
-    
+        
+
         return response.data;
         
     } catch (error) {
+        
         return { message : error }
     }
 }

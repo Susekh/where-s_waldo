@@ -25,7 +25,7 @@ function Logout({lists_r} : Props) {
     const handleLogout = async() => {
         const response = await FetchServerData("/auth/log-out");
         
-        if(response.message === "User logged Out"){
+        if(response.success){
             setCharArr([]);
             toast({
                 title: response.message
