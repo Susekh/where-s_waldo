@@ -1,6 +1,8 @@
 # Where's Waldo Puzzle Game App
 Welcome to the Where's Waldo Puzzle Game App! This project brings the classic Waldo puzzle game into the digital world, providing an engaging experience for players of all ages.
+
 ### [PLAY NOW!](https://where-is-waldo-5o4.pages.dev/)
+#### [Server Repo](https://github.com/Susekh/where-s_waldo_server)
 
 ## Overview
 This app is built using a combination of React.js for the frontend and Node.js with Express and Mongoose for the backend. By utilizing React.js for the frontend, users can enjoy a seamless and interactive gaming experience. Meanwhile, the backend logic ensures security and prevents unauthorized modifications from the client side.
