@@ -142,7 +142,7 @@ function ForgotPasswordPage() {
 
             <div className="mt-6 text-white">
               <p>Remembered your password?</p>
-              <Button variant="link" onClick={() => navigate("/log-in")}>
+              <Button className="text-white p-0" variant="link" onClick={() => navigate("/log-in")}>
                 Login
               </Button>
             </div>
