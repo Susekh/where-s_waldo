@@ -34,7 +34,7 @@ function LeaderBoard() {
     <AnimatedPage>
       <div>
     
-    <RevealOnScroll><p className="text-white font-BebasNeue mt-12 text-5xl md:text-8xl">LeaderBoard</p></RevealOnScroll>
+    <RevealOnScroll><p className="text-white font-Jersey10 mt-12 text-5xl md:text-8xl">LeaderBoard</p></RevealOnScroll>
     
     
     <Table className="mt-12">

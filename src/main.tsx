@@ -9,6 +9,7 @@ import PlayGame from './pages/PlayGame.tsx'
 import LoginPage from './components/LoginPage.tsx'
 import SignupPage from './components/SignupPage.tsx'
 import IsAuthenticated from './components/IsAuthenticated.tsx'
+import ForgotPasswordPage from './pages/ForgotPasswordPage.tsx'
 
 
 
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path : "/sign-up",
         element : <SignupPage />
+      },
+      {
+        path : '/forgot-password',
+        element : <ForgotPasswordPage/>
       }
     ]
   }

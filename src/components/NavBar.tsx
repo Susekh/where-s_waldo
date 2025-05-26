@@ -5,8 +5,6 @@ import { Menu, X } from "lucide-react";
 import Logout from "./LogoutBtn";
 import { v4 as uuidv4 } from 'uuid';
 
-
-
 interface navOptions {
     id : string;
     name : string;
@@ -67,8 +65,6 @@ function NavBar(){
     }
 
 
-
-
     const navigate = useNavigate();
 
 
@@ -94,7 +90,7 @@ function NavBar(){
     </nav>
     {
         isOpen && (
-            <ul className=" fixed z-10 mt-14 gap-4 p-8 bg-neutral-700 flex basis-full flex-col items-center  md:hidden">
+            <ul className=" fixed z-20 mt-14 gap-4 p-8 bg-neutral-700 flex basis-full flex-col items-center  md:hidden">
             {
                 renderList(lists_l, "mobile")
             }

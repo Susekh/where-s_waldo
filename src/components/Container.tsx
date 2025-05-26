@@ -12,7 +12,7 @@ function Container({ children } : ReactNodeProps) {
 
   useEffect(() => {
     (async() => {
-      const res = await FetchServerData("/test");
+      const res = await FetchServerData("/status");
       if(res.message === "server is working"){
         setLoading(false);
       }
