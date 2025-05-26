@@ -138,7 +138,7 @@ function ForgotPasswordPage() {
                   {loading ? "Loading..." : "Reset Password"}
                 </Button>
               </>
-            )}
+            )};
 
             <div className="mt-6 text-white">
               <p>Remembered your password?</p>
