@@ -1,7 +1,7 @@
 # Where's Waldo Puzzle Game App
 Welcome to the Where's Waldo Puzzle Game App! This project brings the classic Waldo puzzle game into the digital world, providing an engaging experience for players of all ages.
 
-### [PLAY NOW!](https://where-is-waldo-5o4.pages.dev/)
+### [PLAY NOW!](https://find-waldo.khilar.me/)
 #### [Server Repo](https://github.com/Susekh/where-s_waldo_server)
 
 ## Overview
